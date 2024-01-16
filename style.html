@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Animated Signup/Login</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      perspective: 1000px;
+    }
+
+    .container {
+      position: relative;
+      width: 300px;
+      height: 400px;
+      transform-style: preserve-3d;
+      transform: rotateY(20deg);
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .card {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transform-origin: center left;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .login-card {
+      transform: rotateY(0deg);
+    }
+
+    .signup-card {
+      transform: rotateY(-180deg);
+    }
+
+    .card h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .form {
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    .form input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .form button {
+      width: 100%;
+      padding: 10px;
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container" id="container">
+  <div class="card login-card">
+    <h2>Login</h2>
+    <div class="form">
+      <input type="text" placeholder="Username">
+      <input type="password" placeholder="Password">
+      <button onclick="login()">Login</button>
+    </div>
+  </div>
+  <div class="card signup-card">
+    <h2>Sign Up</h2>
+    <div class="form">
+      <input type="text" placeholder="Username">
+      <input type="email" placeholder="Email">
+      <input type="password" placeholder="Password">
+      <button onclick="signup()">Sign Up</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const container = document.getElementById('container');
+
+  function login() {
+    container.style.transform = 'rotateY(0deg)';
+  }
+
+  function signup() {
+    container.style.transform = 'rotateY(-180deg)';
+  }
+</script>
+
+</body>
+</html>
